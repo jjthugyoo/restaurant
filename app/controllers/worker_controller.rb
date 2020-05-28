@@ -22,6 +22,20 @@ class WorkerController < ApplicationController
         end
     end
 
+    def edit
+        @worker = Worker.find(params[:id])
+    end
+
+    def update
+        @worker = Worker.find(params[:id])
+
+        if(@worker.update(worker_params))
+            redirect_to @worker
+        else
+            render 'edit'
+        end
+    end
+
     private def worker_params
         params.require(:worker).permit(:name,  :age, :address, :gender, :role, :wage)
     end

@@ -2,11 +2,15 @@ class DishController < ApplicationController
     before_action :require_login
 
     def index
-        redirect_to new_dish_path
+        @dishes = Dish.all
     end
 
     def new
         @dish = Dish.new
+    end
+    
+    def show
+        redirect_to dish_path
     end
 
     def create
@@ -15,6 +19,19 @@ class DishController < ApplicationController
             redirect_to :root
         else
             render 'new'
+        end
+    end
+
+    def edit
+        @dish= Dish.find(params[:id])
+    end
+
+    def update
+        @dish = Dish.find(params[:id])
+        if(@dish.update(dish_params))
+            redirect_to dish_index_path
+        else
+            render 'edit'
         end
     end
 
