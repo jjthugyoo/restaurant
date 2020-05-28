@@ -4,10 +4,17 @@ class DishController < ApplicationController
     def index
     end
 
-    def create
-        render plain:  params[:dish].inspect
-    end
-
     def new
     end
+
+    def create
+        @dish = Dish.new(dish_params)
+        @dish.save
+        redirect_to :root
+    end
+
+    private def dish_params
+        params.require(:dish).permit(:name,  :price, :description)
+    end
+    
 end

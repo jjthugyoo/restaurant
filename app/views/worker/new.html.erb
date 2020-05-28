@@ -1,0 +1,30 @@
+<h1>Add Worker</h1>
+<%= form_for :worker, url: worker_index_path do |f| %>
+  <p>
+    <%= f.label :name%><br>
+    <%= f.text_field :name%>
+  </p>
+  <p>
+    <%= f.label :age%><br>
+    <%= f.text_field :age%>
+  </p>
+  <p>
+    <%= f.label :address%><br>
+    <%= f.text_field :address%>
+  </p>
+  <p>
+    <%= f.label :gender%><br>
+    <%= f.text_field :gender%>
+  </p>
+  <p>
+    <%= f.label :role%><br>
+    <%= f.text_field :role%>
+  </p>
+  <p>
+    <%= f.label :wage%><br>
+    <%= f.text_field :wage%>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
