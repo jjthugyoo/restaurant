@@ -6,6 +6,7 @@ class WorkerController < ApplicationController
     end
 
     def new
+        @worker = Worker.new
     end
 
     def show
@@ -14,8 +15,11 @@ class WorkerController < ApplicationController
 
     def create
         @worker = Worker.new(worker_params)
-        @worker.save
-        redirect_to @worker
+        if(@worker.save)
+            redirect_to @worker
+        else
+            render 'new'
+        end
     end
 
     private def worker_params

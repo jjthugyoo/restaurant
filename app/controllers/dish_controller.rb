@@ -2,15 +2,20 @@ class DishController < ApplicationController
     before_action :require_login
 
     def index
+        redirect_to new_dish_path
     end
 
     def new
+        @dish = Dish.new
     end
 
     def create
         @dish = Dish.new(dish_params)
-        @dish.save
-        redirect_to :root
+        if(@dish.save)
+            redirect_to :root
+        else
+            render 'new'
+        end
     end
 
     private def dish_params

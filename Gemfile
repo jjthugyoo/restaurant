@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'clearance', '~> 1.15'
 gem 'solargraph', '~> 0.33'
 gem 'htmlbeautifier'
+gem 'bootstrap-select-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

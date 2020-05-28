@@ -1,18 +1,23 @@
 <h1>Add Dishes</h1>
 <%= form_for :dish, url: dish_index_path do |f| %>
+  <% if @dish.errors.any? %>
+    <% @dish.errors.full_messages.each do |msg| %>
+      <div class='alert alert-danger'><%= msg %></div>
+    <% end %>
+  <% end %>
   <p>
     <%= f.label :name%><br>
-    <%= f.text_field :name%>
+    <%= f.text_field :name, class: 'form-control'%>
   </p>
   <p>
     <%= f.label :price%><br>
-    <%= f.text_field :price%>
+    <%= f.text_field :price, class: 'form-control'%>
   </p>
   <p>
     <%= f.label :description%><br>
-    <%= f.text_field :description%>
+    <%= f.text_field :description, class: 'form-control'%>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit class:  'btn btn-primary' %>
   </p>
 <% end %>
